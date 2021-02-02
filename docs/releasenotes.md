@@ -1,11 +1,9 @@
 # Releasenotes Haal-Centraal-BRP-historie-bevragen
 
 
-## Versie 0.9.0
+## Versie 1.0.0
 
-Alhoewel er nog geen eerdere officiële versie van de Haal-Centraal-BRP-historie-bevragen API als release is uitgebracht zijn de specificaties van deze endpoints als onderdeel van de specificatie van Haal-Centraal-BRP-bevragen het afgelopen jaar redelijk stabiel geweest. Enkele maanden geleden hebben we de historie-endpoints in een aparte API ondergebracht. Daarbij zijn nieuwe inzichten die het afgelopen jaar zijn opgedaan opgenomen. Dit is een globaal (en niet limitatief) overzicht van wijzigingen die daarvoor zijn doorgevoerd. 
-
-We bieden nu ook SDK's aan met gegenereerde [plumbing-code](./code). Daarnaast bieden we een[postman-collectie](./test) t.b.v. testen aan.
+Alhoewel er nog geen eerdere officiële versie van de Haal-Centraal-BRP-historie-bevragen API als release is uitgebracht zijn de specificaties van deze endpoints als onderdeel van de specificatie van Haal-Centraal-BRP-bevragen het afgelopen jaar redelijk stabiel geweest. Enkele maanden geleden hebben we de historie-endpoints in een aparte API ondergebracht. Daarbij zijn nieuwe inzichten die het afgelopen jaar zijn opgedaan opgenomen. Dit is een globaal (en niet limitatief) overzicht van wijzigingen die daarvoor zijn doorgevoerd. Recentelijk hebben we de specificaties ook aangepast op het hergebruik van componentnen uit BRP-Bevragen release 1.2.0.
 
 ### Openapi.yaml :
 
@@ -29,24 +27,24 @@ We bieden nu ook SDK's aan met gegenereerde [plumbing-code](./code). Daarnaast b
   - VerblijfstitelhistorieHalCollectie__embedded --> VerblijfstitelhistorieHalCollectieEmbedded
   - AangaanHuwelijkInOnderzoek --> AangaanHuwelijkPartnerschapInOnderzoek
 
-- Schema-component Burgerservicenummer is verwijderd
+- Schema-component Burgerservicenummer
 
 - Enkele property-namen zijn gewijzigd
   - nationaliteithistorie.datumEindeGeldigheid --> nationaliteithistorie.datumTot
   - Verblijfplaatshistorie_links.nummeraanduiding --> VerblijfplaatshistorieLinks.adres
   - Verblijfplaats is anders opgebouwd.
-    - Schema-component BinnenlandsAdres is verwijderd. Er wordt nu hergebruik gemaakt van het component Adres ipv het component BinnenlandsAdres
-      - BinnenlandsAdres.openbareRuimteNaam --> Verblijfplaats.straat _**(breaking)**_
-      - BinnenlandsAdres.functieAdres --> Verblijfplaats.functieAdres _**(breaking)**_
-      - BinnenlandsAdres.aanduidingBijHuisnummer --> Verblijfplaats.aanduidingBijHuisnummer _**(breaking)**_
-      - BinnenlandsAdres.identificatiecodeNummeraanduiding --> Verblijfplaats.nummeraanduidingIdentificatie _**(breaking)**_
-      - BinnenlandsAdres.woonplaatsnaam --> Verblijfplaats.woonplaats _**(breaking)**_
-      - Verblijfplaats.identificatiecodeAdresseerbaarObject --> Verblijfplaats.adresseerbaarObjectIdentificatie _**(breaking)**_
-      - Verblijfplaats.straatnaam --> Verblijfplaats.korteNaam _**(breaking)**_
+    - Schema-component BinnenlandsAdres is verwijderd. Er wordt nu hergebruik gemaakt van het component Adres en dat wordt direct aangevuld met de properties
+      - BinnenlandsAdres.openbareRuimteNaam --> Verblijfplaats.straat
+      - BinnenlandsAdres.functieAdres --> Verblijfplaats.functieAdres
+      - BinnenlandsAdres.aanduidingBijHuisnummer --> Verblijfplaats.aanduidingBijHuisnummer
+      - BinnenlandsAdres.identificatiecodeNummeraanduiding --> Verblijfplaats.nummeraanduidingIdentificatie
+      - BinnenlandsAdres.woonplaatsnaam --> Verblijfplaats.woonplaats
+      - Verblijfplaats.identificatiecodeAdresseerbaarObject --> Verblijfplaats.adresseerbaarObjectIdentificatie
+      - Verblijfplaats.straatnaam --> Verblijfplaats.korteNaam
       - component verblijfBuitenland is komen te vervallen. _**(breaking)**_
     - Schema-component Verblijfbuitenland is verwijderd. Properties zijn opgenomen in Verblijfplaats.
-      - VerblijfBuitenland.adresRegel1 --> Verblijfplaats.adresregel1 _**(breaking)**_
-      - VerblijfBuitenland.adresRegel2 --> Verblijfplaats.adresregel2 (br _**(breaking)**_
+      - VerblijfBuitenland.adresRegel1 --> Verblijfplaats.adresregel1  _**(breaking)**_
+      - VerblijfBuitenland.adresRegel2 --> Verblijfplaats.adresregel2  _**(breaking)**_
       - VerblijfBuitenland.vertrokkenOnbekendWaarheen --> Verblijfplaats.vertrokkenOnbekendWaarheen _**(breaking)**_
       - VerblijfBuitenland.land --> Verblijfplaats.land _**(breaking)**_
     - VerblijfplaatsInOnderzoek.identificatiecodeNummeraanduiding --> VerblijfplaatsInOnderzoek.nummeraanduidingIdentificatie _**(breaking)**_
